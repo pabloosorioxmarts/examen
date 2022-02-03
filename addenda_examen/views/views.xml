@@ -1,0 +1,24 @@
+<odoo>
+  <data>
+    <template id="addenda_test" name="Examen">
+        <Documento xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <t t-set="Cliente" t-value="record.partner_id.name"/>
+            <t t-set="Email" t-value="record.partner_id.email"/>
+            <t t-set="Telefono" t-value="record.partner_id.phone"/>
+            <t t-set="Moneda" t-value="record.currency_id.name"/>
+            <t t-set="Origen" t-value="record.invoice_origin"/>
+
+            <AddendaFactura>
+                <cliente><t t-esc="Cliente"/></cliente>
+                <email><t t-esc="Email"/></email>
+                <telefono><t t-esc="Telefono"/></telefono>
+                <moneda><t t-esc="Moneda"/></moneda>
+                <origen><t t-esc="Origen"/></origen>
+            </AddendaFactura>
+        </Documento>
+    </template>
+    <record id="addenda_test" model="ir.ui.view">
+        <field name="l10n_mx_edi_addenda_flag">True</field>
+    </record>
+  </data>
+</odoo>
